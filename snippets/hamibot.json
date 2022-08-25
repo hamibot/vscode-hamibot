@@ -1,0 +1,7 @@
+{
+  "hamibot.exit": {
+    "prefix": "hamibot.exit",
+    "body": ["hamibot.exit()"],
+    "description": "结束脚本"
+  }
+}

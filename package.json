@@ -1,0 +1,129 @@
+{
+  "name": "vscode-hamibot",
+  "displayName": "Hamibot",
+  "description": "Hamibot 智能提示、调试。",
+  "version": "0.1.0",
+  "publisher": "Hamibot",
+  "repository": "https://github.com/hamibot/vscode-hamibot",
+  "engines": {
+    "vscode": "^1.34.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "hamibot",
+    "autojs"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "onCommand:hamibot.run",
+    "onCommand:hamibot.saveAndRun",
+    "onCommand:hamibot.openSetting"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hamibot.run",
+        "title": "运行 Hamibot 脚本",
+        "icon": "$(run)"
+      },
+      {
+        "command": "hamibot.saveAndRun",
+        "title": "保存并运行 Hamibot 脚本",
+        "icon": "$(save)"
+      },
+      {
+        "command": "hamibot.openSetting",
+        "title": "设置 Hamibot"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "hamibot.run",
+        "key": "f9"
+      },
+      {
+        "command": "hamibot.saveAndRun",
+        "key": "f10"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "hamibot.run",
+          "group": "navigation@0"
+        },
+        {
+          "command": "hamibot.saveAndRun",
+          "group": "navigation@1"
+        },
+        {
+          "command": "hamibot.openSetting",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "hamibot.run",
+          "group": "navigation@0"
+        },
+        {
+          "command": "hamibot.saveAndRun",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Hamibot",
+      "properties": {
+        "hamibot.token": {
+          "type": "string",
+          "default": "",
+          "description": "开发者令牌"
+        },
+        "hamibot.scriptId": {
+          "type": "string",
+          "default": "",
+          "description": "脚本 id"
+        },
+        "hamibot.robotId": {
+          "type": "string",
+          "default": "",
+          "description": "机器人 id"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/autojs.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/hamibot.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/node-fetch": "^2.6.2",
+    "@types/vscode": "^1.34.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.13.0",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
