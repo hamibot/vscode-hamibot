@@ -2,6 +2,8 @@
 
 Hamibot 智能提示、调试。
 
+安装地址：[VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=hamibot.vscode-hamibot)
+
 [Hamibot](https://hamibot.com/) 是一款安卓平台自动化工具，无需 root。
 
 <a href="https://hamibot.com/" ><img src="https://repository-images.githubusercontent.com/317106172/7d373900-616e-11eb-9170-ba931b11f1cb" alt="Hamibot" /></a>

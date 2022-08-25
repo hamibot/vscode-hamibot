@@ -2,7 +2,7 @@
   "name": "vscode-hamibot",
   "displayName": "Hamibot",
   "description": "Hamibot 智能提示、调试。",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "Hamibot",
   "repository": "https://github.com/hamibot/vscode-hamibot",
   "engines": {
@@ -124,6 +124,7 @@
     "typescript": "^4.7.2"
   },
   "dependencies": {
+    "form-data": "^4.0.0",
     "node-fetch": "^2.6.1"
   }
 }
