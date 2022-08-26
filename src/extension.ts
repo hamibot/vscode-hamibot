@@ -5,6 +5,10 @@ import fetch from 'node-fetch';
 import * as FormData from 'form-data';
 
 export function activate(context: vscode.ExtensionContext) {
+  const version = vscode.extensions.getExtension('hamibot.vscode-hamibot')
+    ?.packageJSON.version;
+  const userAgent = `vscode-hamibot ${version}`;
+
   const getConf = () => {
     const config = vscode.workspace.getConfiguration();
     const token = config.get('hamibot.token');
@@ -46,6 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
         {
           method: 'POST',
           headers: {
+            'User-Agent': userAgent,
             'Content-Type': 'application/json',
             Authorization: `token ${config.token}`,
           },
@@ -96,6 +101,7 @@ export function activate(context: vscode.ExtensionContext) {
           {
             method: 'PUT',
             headers: {
+              'User-Agent': userAgent,
               Authorization: `token ${config.token}`,
             },
             body,
@@ -124,6 +130,7 @@ export function activate(context: vscode.ExtensionContext) {
         {
           method: 'DELETE',
           headers: {
+            'User-Agent': userAgent,
             'Content-Type': 'application/json',
             Authorization: `token ${config.token}`,
           },
