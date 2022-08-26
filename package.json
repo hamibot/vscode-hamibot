@@ -2,7 +2,7 @@
   "name": "vscode-hamibot",
   "displayName": "Hamibot",
   "description": "Hamibot 智能提示、调试。",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publisher": "Hamibot",
   "repository": "https://github.com/hamibot/vscode-hamibot",
   "engines": {
@@ -20,6 +20,7 @@
   "activationEvents": [
     "onCommand:hamibot.run",
     "onCommand:hamibot.saveAndRun",
+    "onCommand:hamibot.stop",
     "onCommand:hamibot.openSetting"
   ],
   "main": "./out/extension.js",
@@ -38,6 +39,12 @@
         "when": "editorLangId == javascript"
       },
       {
+        "command": "hamibot.stop",
+        "title": "停止 Hamibot 脚本",
+        "icon": "$(debug-stop)",
+        "when": "editorLangId == javascript"
+      },
+      {
         "command": "hamibot.openSetting",
         "title": "设置 Hamibot",
         "when": "editorLangId == javascript"
@@ -53,6 +60,11 @@
         "command": "hamibot.saveAndRun",
         "key": "f10",
         "when": "editorLangId == javascript"
+      },
+      {
+        "command": "hamibot.stop",
+        "key": "f11",
+        "when": "editorLangId == javascript"
       }
     ],
     "menus": {
@@ -64,6 +76,11 @@
         },
         {
           "command": "hamibot.saveAndRun",
+          "group": "navigation@1",
+          "when": "editorLangId == javascript"
+        },
+        {
+          "command": "hamibot.stop",
           "group": "navigation@1",
           "when": "editorLangId == javascript"
         },
@@ -81,6 +98,11 @@
         },
         {
           "command": "hamibot.saveAndRun",
+          "group": "navigation@1",
+          "when": "editorLangId == javascript"
+        },
+        {
+          "command": "hamibot.stop",
           "group": "navigation@1",
           "when": "editorLangId == javascript"
         }

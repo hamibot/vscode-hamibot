@@ -115,6 +115,40 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const stop = vscode.commands.registerCommand('hamibot.stop', async () => {
+    try {
+      const config = getConf();
+      if (!config) return;
+      const response = await fetch(
+        `https://api.hamibot.com/v1/devscripts/${config.scriptId}/run`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `token ${config.token}`,
+          },
+          body: JSON.stringify({
+            robots: [
+              {
+                _id: config.robotId,
+                name: 'Hamibot VSCode',
+              },
+            ],
+          }),
+        }
+      );
+      if (response.ok) {
+        vscode.window.showInformationMessage('停止成功');
+      } else {
+        const data = await response.json();
+        vscode.window.showErrorMessage('停止失败：' + JSON.stringify(data));
+      }
+    } catch (e) {
+      console.error(e);
+      vscode.window.showErrorMessage('停止异常');
+    }
+  });
+
   const openSetting = vscode.commands.registerCommand(
     'hamibot.openSetting',
     async () => {
@@ -126,5 +160,5 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  context.subscriptions.push(...[run, saveAndRun, openSetting]);
+  context.subscriptions.push(...[run, saveAndRun, stop, openSetting]);
 }
