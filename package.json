@@ -2,7 +2,7 @@
   "name": "vscode-hamibot",
   "displayName": "Hamibot",
   "description": "Hamibot 智能提示、调试。",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "Hamibot",
   "repository": "https://github.com/hamibot/vscode-hamibot",
   "engines": {
@@ -28,51 +28,61 @@
       {
         "command": "hamibot.run",
         "title": "运行 Hamibot 脚本",
-        "icon": "$(run)"
+        "icon": "$(run)",
+        "when": "editorLangId == javascript"
       },
       {
         "command": "hamibot.saveAndRun",
         "title": "保存并运行 Hamibot 脚本",
-        "icon": "$(save)"
+        "icon": "$(save)",
+        "when": "editorLangId == javascript"
       },
       {
         "command": "hamibot.openSetting",
-        "title": "设置 Hamibot"
+        "title": "设置 Hamibot",
+        "when": "editorLangId == javascript"
       }
     ],
     "keybindings": [
       {
         "command": "hamibot.run",
-        "key": "f9"
+        "key": "f9",
+        "when": "editorLangId == javascript"
       },
       {
         "command": "hamibot.saveAndRun",
-        "key": "f10"
+        "key": "f10",
+        "when": "editorLangId == javascript"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "command": "hamibot.run",
-          "group": "navigation@0"
+          "group": "navigation@0",
+          "when": "editorLangId == javascript"
         },
         {
           "command": "hamibot.saveAndRun",
-          "group": "navigation@1"
+          "group": "navigation@1",
+          "when": "editorLangId == javascript"
         },
         {
           "command": "hamibot.openSetting",
-          "group": "navigation@1"
+          "group": "navigation@1",
+          "when": "editorLangId == javascript"
         }
       ],
       "editor/title": [
         {
           "command": "hamibot.run",
-          "group": "navigation@0"
+          "group": "navigation@0",
+          "when": "editorLangId == javascript"
         },
         {
           "command": "hamibot.saveAndRun",
-          "group": "navigation@1"
+          "group": "navigation@1",
+          "when": "editorLangId == javascript"
         }
       ]
     },
