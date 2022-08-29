@@ -2,7 +2,7 @@
   "name": "vscode-hamibot",
   "displayName": "Hamibot",
   "description": "Hamibot 智能提示、调试。",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "Hamibot",
   "repository": "https://github.com/hamibot/vscode-hamibot",
   "engines": {
